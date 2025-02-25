@@ -1,0 +1,198 @@
+@keyframes growAndShrink {
+    0% {
+        transform: translate(-50%, -50%) scale(0); /* 초기 위치와 크기 */
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5); /* 확대 */
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1); /* 원래 크기 */
+    }
+}
+
+/* 모든 행성에 동일한 애니메이션 적용 */
+.Pplanet,
+.Splanet,
+.Fplanet,
+.Gplanet,
+.Bplanet {
+    animation: growAndShrink 1.5s ease-out; /* 애니메이션 추가 */
+    animation-fill-mode: forwards; /* 애니메이션 후 상태 유지 */
+    transform-origin: center center; /* 중심 기준 확대/축소 */
+    position: absolute; /* 위치 고정 */
+}
+
+/* Pplanet의 움직임 */
+@keyframes movePplanet {
+    0% {
+        transform: translate(-50%, -50%) translate(0, 0);
+    }
+    25% {
+        transform: translate(-50%, -50%) translate(30px, -20px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translate(-50px, 50px);
+    }
+    75% {
+        transform: translate(-50%, -50%) translate(20px, -30px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translate(0, 0);
+    }
+}
+
+/* Splanet의 움직임 */
+@keyframes moveSplanet {
+    0% {
+        transform: translate(-50%, -50%) translate(0, 0);
+    }
+    25% {
+        transform: translate(-50%, -50%) translate(-20px, 30px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translate(40px, -40px);
+    }
+    75% {
+        transform: translate(-50%, -50%) translate(-30px, 20px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translate(0, 0);
+    }
+}
+
+/* Fplanet의 움직임 */
+@keyframes moveFplanet {
+    0% {
+        transform: translate(-50%, -50%) translate(0, 0);
+    }
+    25% {
+        transform: translate(-50%, -50%) translate(50px, -10px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translate(-60px, 30px);
+    }
+    75% {
+        transform: translate(-50%, -50%) translate(30px, -20px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translate(0, 0);
+    }
+}
+
+/* 각 행성에 다른 애니메이션 적용 */
+.Pplanet {
+    animation: movePplanet 6s ease-in-out infinite;
+}
+
+.Splanet {
+    animation: moveSplanet 7s ease-in-out infinite;
+}
+
+.Fplanet {
+    animation: moveFplanet 8s ease-in-out infinite;
+}
+
+.Gplanet {
+    animation: movePplanet 9s ease-in-out infinite;
+}
+
+.Bplanet {
+    animation: moveSplanet 10s ease-in-out infinite;
+}
+
+
+
+/* 전역 스타일 */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', 'Pretendard', sans-serif;
+}
+
+body {
+    position: relative;
+    background-image: url("./img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* 초점 영역 스타일 */
+#focus {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 3, 3, 0); /* 반투명 배경 */
+    z-index: 10; /* 다른 요소 위에 위치 */
+    pointer-events: none; /* 클릭 이벤트 무시 */
+}
+
+.text {
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    color: white;
+}
+
+/* 행성 스타일 */
+.Pplanet {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 위치 보정 */
+    text-align: center;
+}
+
+.Pplanet:hover {
+    transform: scale(1.5); /* 확대 효과 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* 그림자 효과 추가 */
+}
+
+
+.Splanet {
+    top: 27%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.Fplanet {
+    top: 65%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.Gplanet {
+    top: 70%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.Bplanet {
+    top: 20%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.imgsize {
+    width: 220px;
+    height: 220px;
+    transform-origin: center; /* 중심 기준 확대/축소 */
+    transition: transform 0.3s ease; /* 부드러운 전환 */
+}
+
+.imgsize:hover {
+    transform: scale(1.3); /* 중심 기준으로 확대 */
+}
+
+
